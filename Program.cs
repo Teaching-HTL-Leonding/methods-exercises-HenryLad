@@ -5,6 +5,7 @@ int counter1 = 0;
 int counter2 = 0;
 int enternumber = 0;
 bool fortnite = false;
+double number = 0.0;
 string selection;
 
 do
@@ -39,6 +40,8 @@ do
          case "4": NumberRange(); CheckIfValid(min, max); break;
          case "5": Chuxel(); break;
          case "6 ": TrippleChuxel(); break;
+         case "7": CheckForNumber(); break;
+         case "8": CheckForString(); break;
          default: break;
       }
 
@@ -243,6 +246,66 @@ bool isPalindrome(string text)
     }
     return true;
 }}
+
+
+#endregion
+#region Level 7
+
+void CheckForNumber()
+    {
+        Console.Write("Please enter a number: ");
+        double number = double.Parse(Console.ReadLine()!);
+        string result = BarCounter(number);
+        Console.WriteLine($"The Bar is : {result} full");
+    }
+
+    string BarCounter(double number)
+    {
+        if (number > 0.0 && number < 0.1) { return ".........."; }
+        if (number >= 0.1 && number < 0.2) { return "o........."; }
+        if (number >= 0.2 && number < 0.3) { return "oo........"; }
+        if (number >= 0.3 && number < 0.4) { return "ooo......."; }
+        if (number >= 0.4 && number < 0.5) { return "oooo......"; }
+        if (number >= 0.5 && number < 0.6) { return "ooooo....."; }
+        if (number >= 0.6 && number < 0.7) { return "oooooo...."; }
+        if (number >= 0.7 && number < 0.8) { return "ooooooo..."; }
+        if (number >= 0.8 && number < 0.9) { return "oooooooo.."; }
+        if (number >= 0.9 && number < 1.0) { return "ooooooooo."; }
+        if (number == 1) { return "oooooooooo"; }
+        else { return ".........."; }
+    }
+
+
+
+
+#endregion
+#region  Level 8
+   void CheckForString()
+    {
+        Console.Write("Please enter a Smiley Face: ");
+        string text = (Console.ReadLine()!);
+        int result = CountSmilingFaces(text);
+        Console.WriteLine($"You have {result} Smiley Faces");
+    }
+   int CountSmilingFaces(string text)
+    {
+        int count = 0;
+        for (int i = 0; i < text.Length - 1; i++)
+        {
+            if (text[i] == ':' && text[i + 1] == '-')
+            {
+                if (i < text.Length - 2 && text[i + 2] == ')')
+                {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+#endregion
+#region Level 9
+
 
 
 #endregion
